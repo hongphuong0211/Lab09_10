@@ -2,7 +2,7 @@ package hust.soict.globalict.gui.awt;
 
 import java.awt.*; // Using AWT container and component classes
 import java.awt.event.*; // Using AWT event classes and listener interfaces
-// An AWT program inherits from the top-level container java.awt.Frame
+
 public class AWTCounter extends Frame implements ActionListener {
 	private Label lblCount; // Declare a Label component
 	private TextField tfCount; // Declare a TextField component
@@ -25,6 +25,7 @@ public class AWTCounter extends Frame implements ActionListener {
 		// The source add "this" instance as an ActionEvent listener, which provides
 		// an ActionEvent handler called actionPerformed().
 		// Clicking "btnCount" invokes actionPerformed().
+		addWindowListener(new MyWindowListener());
 		setTitle("AWT Counter"); // "super" Frame sets its title
 		setSize(250, 100); // "super" Frame sets its initial window size
 		// For inspecting the Container/Components objects
@@ -51,4 +52,21 @@ public class AWTCounter extends Frame implements ActionListener {
 		// Display the counter value on the TextField tfCount
 		tfCount.setText(count + ""); // Convert int to String
 	}
+	
+	private class MyWindowListener implements WindowListener {
+	      // Called back upon clicking close-window button
+	      @Override
+	      public void windowClosing(WindowEvent evt) {
+	         System.exit(0);  // Terminate the program
+	      }
+
+	      // Not Used, BUT need to provide an empty body to compile.
+	      @Override public void windowOpened(WindowEvent evt) { }
+	      @Override public void windowClosed(WindowEvent evt) { }
+	      // For Debugging
+	      @Override public void windowIconified(WindowEvent evt) { System.out.println("Window Iconified"); }
+	      @Override public void windowDeiconified(WindowEvent evt) { System.out.println("Window Deiconified"); }
+	      @Override public void windowActivated(WindowEvent evt) { System.out.println("Window Activated"); }
+	      @Override public void windowDeactivated(WindowEvent evt) { System.out.println("Window Deactivated"); }
+	   }
 }
