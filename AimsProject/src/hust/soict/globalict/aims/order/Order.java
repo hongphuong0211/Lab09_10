@@ -138,7 +138,7 @@ public class Order extends JFrame{
 		
 		JPanel Menu = new JPanel();
 		Menu.setBackground(Color.WHITE);
-		Menu.setBounds(292, 45, 441, 375);
+		Menu.setBounds(282, 43, 441, 375);
 		panel.add(Menu);
 		Menu.setLayout(null);
 		
@@ -517,6 +517,22 @@ public class Order extends JFrame{
 		JCheckBoxMenuItem ID7 = new JCheckBoxMenuItem("7. CD: The Poll Winners, Jazz, 34.50$, Barney Kessel, Jordu");
 		ID7.setBounds(6, 184, 384, 24);
 		Menu.add(ID7);
+		
+		JButton btnQues = new JButton("?");
+		btnQues.setForeground(SystemColor.controlText);
+		btnQues.setBackground(SystemColor.info);
+		btnQues.setFont(new Font("Cambria Math", Font.PLAIN, 18));
+		btnQues.setBounds(675, 5, 28, 30);
+		panel.add(btnQues);
+		btnQues.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JOptionPane.showMessageDialog(null, "You can select the item by checking it's box or clicking the button.\nClick button to increase the number of items ordered.");
+			}
+			
+		});
 		
 		
 		ID7.addActionListener(new ActionListener() {
